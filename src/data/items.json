@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Gear VR",
+    "price": 400.99,
+    "imgUrl": "/images/gear-vr.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Galaxy Flip",
+    "price": 1199,
+    "imgUrl": "/images/galaxy-flip.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Smartwatch Gear",
+    "price": 100.05,
+    "imgUrl": "/images/smartwatch-gear.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Note 20 Pack",
+    "price": 6000,
+    "imgUrl": "/images/note-pack.jpg"
+  }
+]

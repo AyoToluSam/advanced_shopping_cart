@@ -106,3 +106,13 @@ a {
     color-scheme: dark;
   }
 }
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+
+@import "../components/Navbar/Navbar",
+"../components/StoreItem/StoreItem"
