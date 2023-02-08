@@ -1,24 +1,28 @@
-import {CiShoppingCart} from 'react-icons/ci'
+import {FiShoppingCart} from 'react-icons/Fi'
 import Link from 'next/link'
 import { useShoppingCart } from '@/contexts/ShoppingCartContext'
 
 const Navbar = () => {
 
-  const {openCart, closeCart, cartQuantity} = useShoppingCart()
+  const {openCart, cartQuantity} = useShoppingCart()
 
   return (
     <nav className='app_navbar'>
       <ul className='navList'>
         <li><Link href={"/"}>Home</Link></li>
-        <li><Link href={"/store"}>Store</Link></li>
-        <li><Link href={"/about"}>About</Link></li>
+        <li><Link href={"/Store"}>Store</Link></li>
+        <li><Link href={"/About"}>About</Link></li>
       </ul>
-      <button onClick={() => openCart()}>
-        <CiShoppingCart className='cart'/>
+      <div className='cart'>
+        <button onClick={() => openCart()}>
+          <FiShoppingCart/>
+        </button>
         {cartQuantity > 0 &&
-        <div className='itemCount'>{cartQuantity}</div>
+          <span className='itemCount'>
+            {cartQuantity}
+          </span>
         }
-      </button>
+      </div>
     </nav>
   )
 }

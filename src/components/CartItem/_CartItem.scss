@@ -1,0 +1,34 @@
+.cartItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+
+  img {
+    object-fit: cover;
+    width: 125px;
+    height: auto;
+  }
+
+  .itemInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .infoLeft {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .itemDetails {
+        display: flex;
+        gap: 0.5rem;
+      }
+    }
+
+    .infoRight {
+      display: flex;
+      gap: 0.5rem;
+    }
+  }
+}

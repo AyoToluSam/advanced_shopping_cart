@@ -1,4 +1,5 @@
 import ShoppingCart from '@/components/ShoppingCart/ShoppingCart'
+import { useLocalStorage } from '@/utilities/useLocalStorage'
 import {useContext, createContext, useState} from 'react'
 
 type ShoppingCartContextProps = {
@@ -35,7 +36,7 @@ export const ShoppingCartProvider = ({children}: ShoppingCartProviderProps) => {
   const openCart = () => setIsOpen(true)
   const closeCart = () => setIsOpen(false)
 
-  const [cartItems, setCartItems] = useState<CartItemProps[]>([])
+  const [cartItems, setCartItems] = useLocalStorage<CartItemProps[]>("Shopping Cart", [])
 
   const getItemQuantity = (id: number) => {
     return cartItems.find(item => item.id === id)?.quantity || 0

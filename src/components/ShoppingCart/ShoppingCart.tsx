@@ -1,5 +1,7 @@
 import {IoMdClose} from 'react-icons/io'
 import { useShoppingCart } from '@/contexts/ShoppingCartContext'
+import { formatCurrency } from '@/utilities/formatCurrency'
+import storeItems from "../../data/items.json"
 import CartItem from '../CartItem/CartItem'
 
 type ShoppingCartProps = {
@@ -18,6 +20,15 @@ const ShoppingCart = ({isOpen} : ShoppingCartProps) => {
         {
           cartItems.map(item => <CartItem key={item.id} {...item} />)
         }
+      </div>
+      <div className='totalPrice'>
+        <h2>
+          Total: {formatCurrency(cartItems.reduce(
+          (total, cartItem) => {
+            const item = storeItems.find(item => item.id === cartItem.id)
+            return total + (item?.price || 0) * cartItem.quantity
+          }, 0))}
+        </h2>
       </div>
     </div>
     : null
