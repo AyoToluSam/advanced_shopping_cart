@@ -7,7 +7,7 @@ const Store = () => {
   return (
     <div>
       <Navbar />
-      <section>
+      <section className='storeItems'>
         {
           items.map((item) => {
             return (
