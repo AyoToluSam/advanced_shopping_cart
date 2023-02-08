@@ -1,0 +1,20 @@
+.shoppingCart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 6rem 2rem 2rem 2rem;
+  background-color: #fff;
+  color: black;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+
+  .closeBtn {
+    position: absolute;
+    top: 2.8rem;
+    right: 2.5rem;
+    font-weight: bold;
+    font-size: 2rem;
+    color: blue;
+    cursor: pointer;
+  }
+}

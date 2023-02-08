@@ -22,13 +22,13 @@ const StoreItem = ({id, name, price, imgUrl}: StoreItemProps) => {
 //The destructured functions are explained as named.
 
   const {
-    getCartQuantity, 
-    incrementCartQuantity, 
-    decrementCartQuantity,
+    getItemQuantity, 
+    increaseItemQuantity, 
+    decreaseItemQuantity,
     removeFromCart
   } = useShoppingCart()
 
-  const quantity = getCartQuantity(id);
+  const quantity = getItemQuantity(id);
 
   return (
     <div className='storeItem'>
@@ -40,12 +40,12 @@ const StoreItem = ({id, name, price, imgUrl}: StoreItemProps) => {
       <div>
         {
           quantity === 0 ?
-          (<button className='addToCart' onClick={() => incrementCartQuantity(id)}> + Add To Cart</button>) : 
+          (<button className='addToCart' onClick={() => increaseItemQuantity(id)}> + Add To Cart</button>) : 
           (<div className='quantityBtns'>
             <div className='minusPlusBtns'>
-              <button onClick={() => decrementCartQuantity(id)}>-</button>
+              <button onClick={() => decreaseItemQuantity(id)}>-</button>
               <p><span>{quantity}</span>in cart</p>
-              <button onClick={() => incrementCartQuantity(id)}>+</button>
+              <button onClick={() => increaseItemQuantity(id)}>+</button>
             </div>
             <button className='removeBtn' onClick={() => removeFromCart(id)}>Remove</button>
           </div>)
