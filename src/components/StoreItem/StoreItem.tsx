@@ -1,6 +1,7 @@
 import { formatCurrency } from '@/utilities/formatCurrency'
 import React from 'react'
 import Image from 'next/image'
+import { useShoppingCart } from '@/contexts/ShoppingCartContext'
 
 type StoreItemProps = {
   id: number,
@@ -9,8 +10,26 @@ type StoreItemProps = {
   imgUrl: string
 }
 
-const StoreItem = ({name, price, imgUrl}: StoreItemProps) => {
-  const quantity = 0;
+//Declaring the component for each store item and destructuting its props
+//as parameters. The type of the component is defined above.
+
+const StoreItem = ({id, name, price, imgUrl}: StoreItemProps) => {
+
+//The useShoppingCart function below is defined in ShoppingCartContext
+//in the contexts folder. It returns a useContext hook which in turn 
+//returns all the context needed in this StoreItem component, as 
+//destructured below.
+//The destructured functions are explained as named.
+
+  const {
+    getCartQuantity, 
+    incrementCartQuantity, 
+    decrementCartQuantity,
+    removeFromCart
+  } = useShoppingCart()
+
+  const quantity = getCartQuantity(id);
+
   return (
     <div className='storeItem'>
       <Image width="1200" height="200" src={imgUrl} alt="shopping item" />
@@ -21,14 +40,14 @@ const StoreItem = ({name, price, imgUrl}: StoreItemProps) => {
       <div>
         {
           quantity === 0 ?
-          (<button className='addToCart'> + Add To Cart</button>) : 
+          (<button className='addToCart' onClick={() => incrementCartQuantity(id)}> + Add To Cart</button>) : 
           (<div className='quantityBtns'>
             <div className='minusPlusBtns'>
-              <button>-</button>
+              <button onClick={() => decrementCartQuantity(id)}>-</button>
               <p><span>{quantity}</span>in cart</p>
-              <button>+</button>
+              <button onClick={() => incrementCartQuantity(id)}>+</button>
             </div>
-            <button className='removeBtn'>Remove</button>
+            <button className='removeBtn' onClick={() => removeFromCart(id)}>Remove</button>
           </div>)
         }
       </div>

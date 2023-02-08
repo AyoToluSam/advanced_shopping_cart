@@ -1,22 +1,22 @@
 import {useContext, createContext, useState} from 'react'
 
-type ShoppingCartContext = {
+type ShoppingCartContextProps = {
   getCartQuantity: (id: number) => number,
   incrementCartQuantity: (id: number) => void,
   decrementCartQuantity: (id: number) => void,
   removeFromCart: (id: number) => void
 }
 
-type ShoppingCartProvider= {
+type ShoppingCartProviderProps= {
   children: React.ReactNode
 }
 
-type CartItem = {
+type CartItemProps = {
   id: number,
   quantity: number
 }
 
-const ShoppingCartContext = createContext({} as ShoppingCartContext)
+const ShoppingCartContext = createContext({} as ShoppingCartContextProps)
 
 export const useShoppingCart = () => {
   return (
@@ -24,9 +24,9 @@ export const useShoppingCart = () => {
   )
 }
 
-export const ShoppingCartProvider = ({children}: ShoppingCartProvider) => {
+export const ShoppingCartProvider = ({children}: ShoppingCartProviderProps) => {
   
-  const [cartItems, setCartItems] = useState<CartItem[]>([])
+  const [cartItems, setCartItems] = useState<CartItemProps[]>([])
 
   const getCartQuantity = (id: number) => {
     return cartItems.find(item => item.id === id)?.quantity || 0
@@ -49,8 +49,8 @@ export const ShoppingCartProvider = ({children}: ShoppingCartProvider) => {
 
   const decrementCartQuantity = (id: number) => {
     setCartItems( cartItems => {
-      if (cartItems.find(item => item.id === id) == null) {
-        return [...cartItems, {id, quantity: 1}]
+      if (cartItems.find(item => item.id === id)?.quantity === 1) {
+        return cartItems.filter(item => item.id !== id)
       } else {
         return cartItems.map(item => {
           if (item.id === id) {
@@ -62,8 +62,14 @@ export const ShoppingCartProvider = ({children}: ShoppingCartProvider) => {
     })
   }
 
+  const removeFromCart = (id: number) => {
+    setCartItems( cartItems => {
+      return cartItems.filter(item => item.id !== id)
+    })
+  }
+
   return (
-    <ShoppingCartContext.Provider value={{getCartQuantity}}>
+    <ShoppingCartContext.Provider value={{getCartQuantity, incrementCartQuantity, decrementCartQuantity, removeFromCart}}>
       {children}
     </ShoppingCartContext.Provider>
   )

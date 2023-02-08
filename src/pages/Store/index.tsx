@@ -7,6 +7,9 @@ const Store = () => {
   return (
     <div>
       <Navbar />
+      {/*The section below maps over the data of the items available in 
+      store to produce a component for each store item, and passing the
+      data for each item as props to its component.*/}
       <section className='storeItems'>
         {
           items.map((item) => {
