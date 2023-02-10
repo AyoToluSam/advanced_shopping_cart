@@ -2,9 +2,5 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-
-  & > * {
-    flex: 1;
-    min-width: 200px;
-  }
+  padding: 2rem;
 }

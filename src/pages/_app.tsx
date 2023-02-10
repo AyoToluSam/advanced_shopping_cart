@@ -5,7 +5,9 @@ import { ShoppingCartProvider } from '@/contexts/ShoppingCartContext'
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ShoppingCartProvider>
-      <Component {...pageProps} />
+      <div className='container'>
+        <Component {...pageProps} />
+      </div>
     </ShoppingCartProvider>
   )
 }

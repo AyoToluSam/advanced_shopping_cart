@@ -13,13 +13,13 @@
   },
   {
     "id": 3,
-    "name": "Smartwatch Gear",
+    "name": "Smartwatch",
     "price": 100.05,
     "imgUrl": "/images/smartwatch-gear.jpg"
   },
   {
     "id": 4,
-    "name": "Note 20 Pack",
+    "name": "Note 20",
     "price": 6000,
     "imgUrl": "/images/note-pack.jpg"
   }
