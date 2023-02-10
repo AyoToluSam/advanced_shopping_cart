@@ -123,10 +123,3 @@ export const ShoppingCartProvider = ({children}: ShoppingCartProviderProps) => {
   )
 }
 
-
-// ShoppingCartProvider.getInitialProps = async (ctx) => {
-//   if (typeof window === "undefined") {
-//     const jsonValue = localStorage.getItem("")
-//     if (jsonValue != null) return {cartItems: JSON.parse(jsonValue)}
-//   }
-// }
