@@ -10,6 +10,9 @@ type ShoppingCartProps = {
 
 const ShoppingCart = ({isOpen} : ShoppingCartProps) => {
 
+//Destructuring the needed context from the useShoppingCart function
+//as defined in the ShoppingCartContext module.
+
   const {closeCart, cartItems} = useShoppingCart()
   
   return ( isOpen ?

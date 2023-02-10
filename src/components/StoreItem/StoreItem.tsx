@@ -35,6 +35,9 @@ const StoreItem = ({id, name, price, imgUrl}: StoreItemProps) => {
       <Image width="1200" height="200" src={imgUrl} alt="shopping item" />
       <div className='title'>
         <h3>{name}</h3>
+        {/*The formatCurrency function is defined in the utilities folder
+        It formats the price passed into it and displays it just as a 
+        currency would read.*/}
         <p>{formatCurrency(price)}</p>
       </div>
       <div>

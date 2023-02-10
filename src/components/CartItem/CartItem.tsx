@@ -8,7 +8,13 @@ type CartItemProps = {
   quantity: number
 }
 
+//This component renders each item added to the cart, the quantity of the
+//item and a button to remove it from the cart.
+
 const CartItem = ({id, quantity} : CartItemProps) => {
+
+//Destructuring the needed context from the useShoppingCart function as
+//defined in the ShoppingCartContext.
 
   const { removeFromCart } = useShoppingCart()
   const item = storeItems.find(item => item.id === id)

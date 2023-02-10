@@ -4,6 +4,12 @@ import { useShoppingCart } from '@/contexts/ShoppingCartContext'
 
 const Navbar = () => {
 
+//The useShoppingCart function below is defined in ShoppingCartContext
+//in the contexts folder. It returns a useContext hook which in turn 
+//returns all the context needed to handle the shopping cart button, as 
+//destructured below.
+//The destructured function and value are explained as named.
+
   const {openCart, cartQuantity} = useShoppingCart()
 
   return (
