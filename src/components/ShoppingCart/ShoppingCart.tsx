@@ -18,20 +18,20 @@ const ShoppingCart = ({isOpen} : ShoppingCartProps) => {
   return ( isOpen ?
     <div className='shoppingCart'>
       <IoMdClose onClick={() => closeCart()} className='closeBtn' />
-      <h2>Cart</h2>
+      <h3>Cart</h3>
       <div>
         {
           cartItems.map(item => <CartItem key={item.id} {...item} />)
         }
       </div>
       <div className='totalPrice'>
-        <h2>
+        <h3>
           Total: {formatCurrency(cartItems.reduce(
           (total, cartItem) => {
             const item = storeItems.find(item => item.id === cartItem.id)
             return total + (item?.price || 0) * cartItem.quantity
           }, 0))}
-        </h2>
+        </h3>
       </div>
     </div>
     : null

@@ -1,20 +1,34 @@
 .shoppingCart {
   position: absolute;
+  display: flex;
+  flex-direction: column;
   top: 0;
   right: 0;
-  padding: 6rem 2rem 2rem 2rem;
+  padding: 2.8rem 2rem 2rem 2rem;
   background-color: #fff;
   color: black;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
+  box-shadow: 3px 5px 10px rgba(1, 65, 255, 0.5);
+
+  & > h3 {
+    padding-bottom: 2rem;
+  }
 
   .closeBtn {
     position: absolute;
     top: 2.8rem;
     right: 2.5rem;
     font-weight: bold;
-    font-size: 2rem;
-    color: blue;
+    font-size: 1.5rem;
+    color: rgba(1, 65, 255, 0.9);
     cursor: pointer;
+  }
+
+  .totalPrice {
+    h3 {
+      border-top: 1px solid $blue;
+      padding-top: 2rem;
+    }
   }
 }
