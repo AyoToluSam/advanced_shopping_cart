@@ -35,6 +35,10 @@
     align-items: center;
     gap: 1rem;
 
+    button {
+      cursor: pointer;
+    }
+
     .minusPlusBtns {
       display: flex;
       justify-content: center;
