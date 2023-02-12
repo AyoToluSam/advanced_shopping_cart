@@ -1,4 +1,4 @@
-import {FiShoppingCart} from 'react-icons/Fi'
+import {FiShoppingCart} from 'react-icons/fi'
 import Link from 'next/link'
 import { useShoppingCart } from '@/contexts/ShoppingCartContext'
 
